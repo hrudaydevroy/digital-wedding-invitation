@@ -1064,10 +1064,8 @@ video{
   .pw-slider-viewport { width: 100%; }
   .live-stream h2 { font-size: 34px; }
   .video-container { padding-bottom: 56.25%; }
-}
-    line-height: 1.5;
-  }
-}
+
+/* end of responsive query */
 
 
 
