@@ -127,25 +127,32 @@
       });
 
       // placeholder upload handlers
+      const BACKEND = 'http://localhost:8080';
       async function submitMedia(form) {
         const data = new FormData(form);
-        const resp = await fetch('http://localhost:8080/api/gallery/upload', {
-          method: 'POST',
-          body: data
-        });
         const msgEl = document.getElementById('uploadMessage');
-        if (resp.ok) {
-          msgEl.textContent = 'Uploaded successfully';
-          msgEl.style.color = 'green';
-          loadGallery();
-          setTimeout(() => { msgEl.textContent = ''; }, 3000);
-        } else if (resp.status === 409) {
-          const body = await resp.json();
-          msgEl.textContent = 'Duplicate: ' + (body.error || 'media exists');
-          msgEl.style.color = 'orange';
-        } else {
-          msgEl.textContent = 'Upload failed';
+        try {
+          const resp = await fetch(BACKEND + '/api/gallery/upload', {
+            method: 'POST',
+            body: data
+          });
+          if (resp.ok) {
+            msgEl.textContent = 'Uploaded successfully';
+            msgEl.style.color = 'green';
+            loadGallery();
+            setTimeout(() => { msgEl.textContent = ''; }, 3000);
+          } else if (resp.status === 409) {
+            const body = await resp.json();
+            msgEl.textContent = 'Duplicate: ' + (body.error || 'media exists');
+            msgEl.style.color = 'orange';
+          } else {
+            msgEl.textContent = 'Upload failed: ' + resp.status;
+            msgEl.style.color = 'red';
+          }
+        } catch (err) {
+          msgEl.textContent = 'Cannot reach backend. Is the server running?';
           msgEl.style.color = 'red';
+          console.error('submitMedia error', err);
         }
       }
 
