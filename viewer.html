@@ -30,8 +30,16 @@
     videosBtn.addEventListener('click',()=>{current='video';videosBtn.classList.add('active');photosBtn.classList.remove('active');load();});
     async function load(){
       const BACKEND = 'http://localhost:8080';
-      const res=await fetch(BACKEND + '/api/gallery');
-      const items=await res.json();
+      let items = [];
+      try {
+        const res=await fetch(BACKEND + '/api/gallery');
+        if (!res.ok) throw new Error('fetch failed');
+        items=await res.json();
+      } catch(e) {
+        container.innerHTML = '<p style="color:red;">Cannot contact backend. Is the server running?</p>';
+        console.error('load gallery error', e);
+        return;
+      }
       container.innerHTML='';
       items.filter(i=>i.type===current).forEach(i=>{
         const div=document.createElement('div');div.className='card';

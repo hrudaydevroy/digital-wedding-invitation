@@ -235,6 +235,13 @@ window.addEventListener('load', () => {
       vid.style.display = 'none';
     });
   }
+  // handle live stream load failure
+  const liveFrame = document.querySelector('#live iframe');
+  if (liveFrame) {
+    liveFrame.addEventListener('error', () => {
+      liveFrame.parentElement.innerHTML = '<p>Live stream unavailable.</p>';
+    });
+  }
   loadGalleryItems();
 });
 
