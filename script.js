@@ -256,16 +256,6 @@ if (galleryBtn) {
   });
 }
 
-// admin quick access
-const adminBtn = document.getElementById('adminBtn');
-if (adminBtn) {
-  adminBtn.addEventListener('click', () => {
-    window.location.href = 'admin.html';
-  });
-}
-  document.getElementById("preview").appendChild(img);
-}
-
 /* ================================
    VOICE RECORD
 ================================ */

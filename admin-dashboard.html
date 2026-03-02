@@ -50,6 +50,26 @@
         padding: 8px;
         margin-bottom: 10px;
       }
+      .upload-form button {
+        background: #007acc;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+      }
+      .upload-form button:hover {
+        background: #005fa3;
+        transform: translateY(-2px);
+      }
+      /* message area shown after upload */
+      #uploadMessage {
+        margin-top: 12px;
+        font-size: 14px;
+        color: #333;
+      }
       .back-btn {
         display: inline-block;
         margin-top: 20px;
@@ -71,6 +91,7 @@
           <input type="text" name="title" placeholder="Title" required />
           <button type="submit">Upload Image</button>
         </form>
+        <div id="uploadMessage"></div>
         <div id="galleryTable"></div>
       </div>
       <div id="videosContent" class="tab-content">
@@ -112,14 +133,19 @@
           method: 'POST',
           body: data
         });
+        const msgEl = document.getElementById('uploadMessage');
         if (resp.ok) {
-          alert('Uploaded successfully');
+          msgEl.textContent = 'Uploaded successfully';
+          msgEl.style.color = 'green';
           loadGallery();
+          setTimeout(() => { msgEl.textContent = ''; }, 3000);
         } else if (resp.status === 409) {
           const body = await resp.json();
-          alert('Duplicate: ' + (body.error || 'media exists'));
+          msgEl.textContent = 'Duplicate: ' + (body.error || 'media exists');
+          msgEl.style.color = 'orange';
         } else {
-          alert('Upload failed');
+          msgEl.textContent = 'Upload failed';
+          msgEl.style.color = 'red';
         }
       }
 

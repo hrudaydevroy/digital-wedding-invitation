@@ -218,13 +218,30 @@ body.wedding-day::after {
   box-shadow: 0 12px 28px rgba(0,0,0,0.3);
 }
 
-/* admin button appears left of gallery button */
-.admin-btn {
-  right: 100px; /* shift left to avoid overlap */
-  background: #333;
+/* gallery fixed button - classic/professional look */
+.fixed-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #444, #666);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  z-index: 1000;
 }
-.admin-btn:hover {
-  background: #555;
+.fixed-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #555, #777);
 }
 
 /* story */
