@@ -330,23 +330,6 @@
             <!-- Repeat for 10 images -->
             <div class="pw-card">
               <img
-                src="./photos/DSC04908.JPG.jpeg"
-                onclick="openLightbox(this)"
-              />
-            </div>
-            <div class="pw-card">
-              <img
-                src="./photos/DSC04909.JPG.jpeg"
-                onclick="openLightbox(this)"
-              />
-            </div>
-            <div class="pw-card">
-              <img
-                src="./photos/DSC04911.JPG.jpeg"
-                onclick="openLightbox(this)"
-              />
-            </div>
-              <img
                 src="./photos/DSC05006.JPG.jpeg"
                 onclick="openLightbox(this)"
               />
@@ -359,9 +342,9 @@
       <br />
       <div class="videos">
         <!-- add your own video file named video.mp4 in the root or update the src below -->
-        <video id="galleryVideo" src="video.mp4" controls>
-          Your browser does not support the video tag.
-        </video>
+        <video id="galleryVideo" controls>
+  <source src="http://localhost:8080/uploads/1772717830000_diwali.mp4" type="video/mp4">
+</video>
       </div>
     </section>
     <!--live stream section-->
@@ -385,7 +368,6 @@
         ></iframe>
       </div>
     </section>
-
     <!--best wishes-->
     <section class="wishes">
       <div class="wish">
@@ -412,11 +394,9 @@
         </div>
       </div>
     </section>
-
     <!--qr code-->
     <section class="qr">
       <h2>Scan for Wedding Invite 💌</h2>
-
       <img
         id="qrImage"
         src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://roymama.wedding"
@@ -455,7 +435,6 @@
     </footer>
     <!--fixed gallery button-->
     <button id="galleryBtn" class="fixed-btn" title="Go to gallery">📸</button>
-
     <!--lightbox-->
     <div id="lightbox" onclick="closeLightbox()">
       <img id="lightbox-img" />

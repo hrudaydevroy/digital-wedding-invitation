@@ -3,232 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      .dashboard-container {
-        max-width: 600px;
-        margin: 80px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      }
-      .dashboard-container h2 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      .tab-buttons {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
-      .tab-buttons button {
-        flex: 1;
-        padding: 10px;
-        border: none;
-        cursor: pointer;
-        background: #eee;
-        border-radius: 6px;
-      }
-      .tab-buttons button.active {
-        background: #ff2f6d;
-        color: #fff;
-      }
-      .tab-content {
-        display: none;
-      }
-      .tab-content.active {
-        display: block;
-      }
-      .upload-form input[type=file] {
-        display: block;
-        margin-bottom: 10px;
-      }
-      .upload-form input[type=text] {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-      }
-      .upload-form button {
-        background: #007acc;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 6px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background 0.2s, transform 0.2s;
-      }
-      .upload-form button:hover {
-        background: #005fa3;
-        transform: translateY(-2px);
-      }
-      /* message area shown after upload */
-      #uploadMessage {
-        margin-top: 12px;
-        font-size: 14px;
-        color: #333;
-      }
-      .back-btn {
-        display: inline-block;
-        margin-top: 20px;
-        color: #ff2f6d;
-        text-decoration: none;
-      }
-    </style>
+
+    <title>Wedding Admin Dashboard</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@500&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
-    <div class="dashboard-container">
-      <h2>Media Manager</h2>
-      <div class="tab-buttons">
+    <div class="dashboard">
+      <h2>Wedding Media Manager</h2>
+
+      <div class="tabs">
         <button id="imagesTab" class="active">Images</button>
         <button id="videosTab">Videos</button>
         <button id="rsvpTab">RSVPs</button>
       </div>
-      <div id="imagesContent" class="tab-content active">
-        <form class="upload-form" id="imageUploadForm">
-          <input type="file" name="file" accept="image/*" required />
-          <input type="text" name="title" placeholder="Title" required />
-          <button type="submit">Upload Image</button>
-        </form>
-        <div id="uploadMessage"></div>
-        <div id="galleryTable"></div>
+
+      <!-- IMAGES -->
+
+      <div id="imagesSection" class="section active">
+        <div class="upload">
+          <h3>Upload Images</h3>
+
+          <form id="imageForm">
+            <input type="file" name="file" accept="image/*" multiple required />
+
+            <button type="submit">Upload Images</button>
+          </form>
+        </div>
+
+        <div class="gallery">
+          <h3>Uploaded Images</h3>
+
+          <div id="imageList"></div>
+        </div>
       </div>
-      <div id="videosContent" class="tab-content">
-        <form class="upload-form" id="videoUploadForm">
-          <input type="file" name="file" accept="video/*" required />
-          <input type="text" name="title" placeholder="Title" required />
-          <button type="submit">Upload Video</button>
-        </form>
-        <div id="galleryTable"></div>
+
+      <!-- VIDEOS -->
+
+      <div id="videosSection" class="section">
+        <div class="upload">
+          <h3>Upload Videos</h3>
+
+          <form id="videoForm">
+            <input type="file" name="file" accept="video/*" multiple required />
+
+            <button type="submit">Upload Videos</button>
+          </form>
+        </div>
+
+        <div class="gallery">
+          <h3>Uploaded Videos</h3>
+
+          <div id="videoList"></div>
+        </div>
       </div>
-      <a href="admin.html" class="back-btn">← Back to login</a>
-      <!-- quick access to public site -->
-      <a href="index.html" class="back-btn" style="margin-left:20px;">View Site</a>
+
+      <!-- RSVP -->
+
+      <div id="rsvpSection" class="section">
+        <h3>RSVP Submissions</h3>
+
+        <table id="rsvpTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Guests</th>
+              <th>Message</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
-    <!-- rsvp list table (initially hidden) -->
-    <div id="rsvpContent" class="tab-content" style="display:none; max-height:400px; overflow:auto;">
-      <h3>RSVP Submissions</h3>
-      <table id="rsvpTable" style="width:100%;border-collapse:collapse;">
-        <thead><tr><th>Name</th><th>Email</th><th>Guests</th><th>Message</th><th>Time</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    </div>
-    <script>
-      const imagesTab = document.getElementById('imagesTab');
-      const videosTab = document.getElementById('videosTab');
-      const rsvpTab = document.getElementById('rsvpTab');
-      const imagesContent = document.getElementById('imagesContent');
-      const videosContent = document.getElementById('videosContent');
-      const rsvpContent = document.getElementById('rsvpContent');
 
-      imagesTab.addEventListener('click', () => {
-        imagesTab.classList.add('active');
-        videosTab.classList.remove('active');
-        imagesContent.classList.add('active');
-        videosContent.classList.remove('active');
-      });
-
-      videosTab.addEventListener('click', () => {
-        videosTab.classList.add('active');
-        imagesTab.classList.remove('active');
-        rsvpTab.classList.remove('active');
-        videosContent.classList.add('active');
-        imagesContent.classList.remove('active');
-        rsvpContent.classList.remove('active');
-      });
-      rsvpTab.addEventListener('click', () => {
-        rsvpTab.classList.add('active');
-        imagesTab.classList.remove('active');
-        videosTab.classList.remove('active');
-        rsvpContent.classList.add('active');
-        imagesContent.classList.remove('active');
-        videosContent.classList.remove('active');
-        loadRSVPs();
-      });
-
-      // placeholder upload handlers
-      const BACKEND = 'http://localhost:8080';
-      async function submitMedia(form) {
-        const data = new FormData(form);
-        const msgEl = document.getElementById('uploadMessage');
-        try {
-          const resp = await fetch(BACKEND + '/api/gallery/upload', {
-            method: 'POST',
-            body: data
-          });
-          if (resp.ok) {
-            msgEl.textContent = 'Uploaded successfully';
-            msgEl.style.color = 'green';
-            loadGallery();
-            setTimeout(() => { msgEl.textContent = ''; }, 3000);
-          } else if (resp.status === 409) {
-            const body = await resp.json();
-            msgEl.textContent = 'Duplicate: ' + (body.error || 'media exists');
-            msgEl.style.color = 'orange';
-          } else {
-            msgEl.textContent = 'Upload failed: ' + resp.status;
-            msgEl.style.color = 'red';
-          }
-        } catch (err) {
-          msgEl.textContent = 'Cannot reach backend. Is the server running?';
-          msgEl.style.color = 'red';
-          console.error('submitMedia error', err);
-        }
-      }
-
-      document.getElementById('imageUploadForm').addEventListener('submit', e => {
-        e.preventDefault();
-        submitMedia(e.target);
-      });
-      document.getElementById('videoUploadForm').addEventListener('submit', e => {
-        e.preventDefault();
-        submitMedia(e.target);
-      });
-
-      // removed duplicate BACKEND declaration (already defined above)
-      async function loadGallery() {
-        const resp = await fetch(BACKEND + '/api/gallery');
-        const items = await resp.json();
-        const table = document.getElementById('galleryTable');
-        if (!table) return;
-        let html = '<table><tr><th>Title</th><th>Type</th><th>Preview</th><th>Action</th></tr>';
-        items.forEach(i => {
-          html += `<tr><td>${i.title}</td><td>${i.type}</td>`;
-          if (i.type === 'image') {
-            html += `<td><img src="${BACKEND + i.mediaUrl}" width="100"></td>`;
-          } else {
-            html += `<td><video src="${BACKEND + i.mediaUrl}" width="150" controls></video></td>`;
-          }
-          html += `<td><button onclick="deleteItem('${i.id}')">Delete</button></td></tr>`;
-        });
-        html += '</table>';
-        table.innerHTML = html;
-      }
-      
-      async function loadRSVPs() {
-        const resp = await fetch(BACKEND + '/api/rsvp');
-        if (!resp.ok) return;
-        const list = await resp.json();
-        const tbody = document.querySelector('#rsvpTable tbody');
-        if (!tbody) return;
-        tbody.innerHTML = '';
-        list.forEach(r => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `<td>${r.name}</td><td>${r.email}</td><td>${r.guests}</td><td>${r.message||''}</td><td>${r.createdAt||''}</td>`;
-          tbody.appendChild(tr);
-        });
-      }
-
-      async function deleteItem(id) {
-        await fetch('http://localhost:8080/api/gallery/' + id, { method: 'DELETE' });
-        loadGallery();
-      }
-
-      // load on start
-      loadGallery();
-    </script>
+    <script src="admin-dashboard.js"></script>
   </body>
 </html>

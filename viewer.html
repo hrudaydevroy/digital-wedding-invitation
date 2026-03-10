@@ -1,64 +1,45 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery Viewer</title>
-  <style>
-    body{font-family:Segoe UI, sans-serif;margin:20px;background:#fafafa}
-    .tabs{display:flex;gap:10px;margin-bottom:20px}
-    .tabs button{flex:1;padding:10px;border:none;cursor:pointer;background:#eee;border-radius:6px}
-    .tabs button.active{background:#ff2f6d;color:#fff}
-    .gallery{display:flex;flex-wrap:wrap;gap:15px}
-    .card{width:200px;text-align:center}
-    .card img, .card video{max-width:100%;border-radius:6px}
-  </style>
-</head>
-<body>
-  <h2>All Media</h2>
-  <div class="tabs">
-    <button id="photosBtn" class="active">Photos</button>
-    <button id="videosBtn">Videos</button>
-  </div>
-  <div id="mediaContainer" class="gallery"></div>
-  <script>
-    const photosBtn=document.getElementById('photosBtn');
-    const videosBtn=document.getElementById('videosBtn');
-    const container=document.getElementById('mediaContainer');
-    let current='image';
-    photosBtn.addEventListener('click',()=>{current='image';photosBtn.classList.add('active');videosBtn.classList.remove('active');load();});
-    videosBtn.addEventListener('click',()=>{current='video';videosBtn.classList.add('active');photosBtn.classList.remove('active');load();});
-    async function load(){
-      const BACKEND = 'http://localhost:8080';
-      let items = [];
-      try {
-        const res=await fetch(BACKEND + '/api/gallery');
-        if (!res.ok) throw new Error('fetch failed');
-        items=await res.json();
-      } catch(e) {
-        container.innerHTML = '<p style="color:red;">Cannot contact backend. Is the server running?</p>';
-        console.error('load gallery error', e);
-        return;
-      }
-      container.innerHTML='';
-      items.filter(i=>i.type===current).forEach(i=>{
-        const div=document.createElement('div');div.className='card';
-        const title=document.createElement('div');title.textContent=i.title;
-        if(current==='image'){
-          const img=document.createElement('img');
-          img.src = 'http://localhost:8080' + i.mediaUrl;
-          div.appendChild(img);
-        } else {
-          const vid=document.createElement('video');
-          vid.src = 'http://localhost:8080' + i.mediaUrl;
-          vid.controls=true;
-          div.appendChild(vid);
-        }
-        div.appendChild(title);
-        container.appendChild(div);
-      });
-    }
-    load();
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Wedding Gallery</title>
+
+    <link rel="stylesheet" href="viewer.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="gallery-header">
+      <h1>Wedding Gallery</h1>
+
+      <div class="tabs">
+        <button id="photosBtn" class="active">Photos</button>
+        <button id="videosBtn">Videos</button>
+      </div>
+    </header>
+
+    <section id="mediaContainer" class="gallery"></section>
+
+    <!-- FULLSCREEN VIEWER -->
+
+    <div id="viewer" class="viewer">
+      <button class="closeBtn" id="closeViewer">✕</button>
+
+      <button class="navBtn left" id="prevBtn">❮</button>
+
+      <div class="viewer-content" id="viewerContent"></div>
+
+      <button class="navBtn right" id="nextBtn">❯</button>
+
+      <a id="downloadBtn" class="downloadBtn">Download</a>
+    </div>
+
+    <script src="viewer.js"></script>
+  </body>
 </html>

@@ -3,55 +3,168 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Login</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <title>Wedding Admin Login</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-      /* simple form override */
-      .admin-container {
-        max-width: 400px;
-        margin: 100px auto;
-        padding: 24px;
-        background: #fff;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        border-radius: 12px;
-        text-align: center;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
       }
+
+      /* Background */
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+          url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e");
+
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* Login Card */
+
+      .admin-container {
+        width: 380px;
+        padding: 40px;
+
+        background: rgba(255, 255, 255, 0.92);
+
+        border-radius: 14px;
+
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+        text-align: center;
+
+        animation: fadeUp 1s ease;
+      }
+
+      /* Title */
+
+      .admin-container h2 {
+        font-family: "Playfair Display", serif;
+
+        font-size: 28px;
+
+        margin-bottom: 20px;
+
+        color: #222;
+      }
+
+      /* Inputs */
+
       .admin-container input {
         width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 6px;
+        padding: 12px;
+
+        margin: 12px 0;
+
+        border: 1px solid #ddd;
+
+        border-radius: 8px;
+
+        font-size: 14px;
+
+        transition: 0.3s;
       }
+
+      /* Input focus */
+
+      .admin-container input:focus {
+        border-color: #d4af37;
+
+        box-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
+
+        outline: none;
+      }
+
+      /* Button */
+
       .admin-container button {
-        padding: 10px 20px;
-        background: #ff2f6d;
-        color: #fff;
+        width: 100%;
+
+        padding: 12px;
+
+        margin-top: 10px;
+
         border: none;
-        border-radius: 6px;
+
+        border-radius: 8px;
+
+        font-size: 15px;
+
+        font-weight: 500;
+
+        color: #fff;
+
+        background: linear-gradient(135deg, #d4af37, #b8962e);
+
         cursor: pointer;
+
+        transition: 0.3s;
+      }
+
+      /* Button hover */
+
+      .admin-container button:hover {
+        transform: translateY(-2px);
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Animation */
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     </style>
   </head>
+
   <body>
     <div class="admin-container">
-      <h2>Admin Login</h2>
+      <h2>Wedding Admin</h2>
+
       <form id="loginForm">
         <input type="text" placeholder="Username" required />
+
         <input type="password" placeholder="Password" required />
+
         <button type="submit">Login</button>
       </form>
     </div>
+
     <script>
-      document.getElementById('loginForm').addEventListener('submit', e => {
+      document.getElementById("loginForm").addEventListener("submit", (e) => {
         e.preventDefault();
+
         const user = e.target[0].value;
         const pass = e.target[1].value;
-        // predefined credentials
-        if (user === 'roy' && pass === 'Hruday@123') {
-          window.location.href = 'admin-dashboard.html';
+
+        if (user === "roy" && pass === "Hruday@123") {
+          window.location.href = "admin-dashboard.html";
         } else {
-          alert('Invalid credentials');
+          alert("Invalid credentials");
         }
       });
     </script>

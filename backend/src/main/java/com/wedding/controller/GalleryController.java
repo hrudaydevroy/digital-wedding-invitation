@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,90 +34,89 @@ public class GalleryController {
     private GalleryRepository repo;
 
     // ================= GET ALL MEDIA =================
+
     @GetMapping
     public List<GalleryItem> all() {
         return repo.findAll();
     }
 
-    // ================= CREATE JSON ITEM =================
-    @PostMapping
-    public GalleryItem create(@RequestBody GalleryItem item) {
-        item.setUploadedAt(LocalDateTime.now());
-        return repo.save(item);
-    }
-
     // ================= DELETE MEDIA =================
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable String id) {
         repo.deleteById(id);
         return ResponseEntity.ok(Map.of("status", "deleted"));
     }
 
-    // ================= UPLOAD IMAGE / VIDEO =================
+    // ================= MULTIPLE FILE UPLOAD =================
+
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> uploadMedia(
-            @RequestParam("file") MultipartFile file,
-            @RequestParam("title") String title) {
+            @RequestParam("file") MultipartFile[] files,
+            @RequestParam(value = "type", required = false) String type) {
 
         try {
 
-            // ---------- validation ----------
-            if (file == null || file.isEmpty()) {
+            if (files == null || files.length == 0) {
                 return ResponseEntity.badRequest()
-                        .body(Map.of("error", "No file selected"));
+                        .body(Map.of("error", "No files selected"));
             }
 
-            if (title == null || title.trim().isEmpty()) {
-                return ResponseEntity.badRequest()
-                        .body(Map.of("error", "Title is required"));
-            }
-
-            // ---------- determine type ----------
-            String contentType = file.getContentType();
-            String type = (contentType != null && contentType.startsWith("video"))
-                    ? "video"
-                    : "image";
-
-            // ---------- check duplicate title ----------
-            if (repo.existsByTitle(title)) {
-                return ResponseEntity.status(409)
-                        .body(Map.of("error", "Title already exists"));
-            }
-
-            // ---------- create uploads folder ----------
             Path uploadDir = Paths.get("uploads");
+
             if (!Files.exists(uploadDir)) {
                 Files.createDirectories(uploadDir);
             }
 
-            // ---------- safe filename ----------
-            String original = file.getOriginalFilename();
-            if (original == null) {
-                original = "file";
+            for (MultipartFile file : files) {
+
+                if (file.isEmpty())
+                    continue;
+
+                String contentType = file.getContentType();
+
+                String mediaType;
+
+                if (type != null) {
+                    mediaType = type;
+                } else if (contentType != null && contentType.startsWith("video")) {
+                    mediaType = "video";
+                } else {
+                    mediaType = "image";
+                }
+
+                String original = file.getOriginalFilename();
+
+                if (original == null)
+                    original = "file";
+
+                String filename = System.currentTimeMillis() + "_" + original;
+
+                Path destination = uploadDir.resolve(filename);
+
+                Files.copy(file.getInputStream(), destination,
+                        StandardCopyOption.REPLACE_EXISTING);
+
+                GalleryItem item = new GalleryItem();
+
+                item.setTitle(original);
+                item.setMediaUrl("/uploads/" + filename);
+                item.setType(mediaType);
+                item.setUploadedAt(LocalDateTime.now());
+
+                repo.save(item);
             }
 
-            String filename = System.currentTimeMillis() + "_" + original;
-            Path destination = uploadDir.resolve(filename);
-
-            // ---------- save file ----------
-            Files.copy(file.getInputStream(), destination,
-                    StandardCopyOption.REPLACE_EXISTING);
-
-            // ---------- build URL ----------
-            String url = "/uploads/" + filename;
-
-            // ---------- save to database ----------
-            GalleryItem item = new GalleryItem();
-            item.setTitle(title);
-            item.setMediaUrl(url);
-            item.setType(type);
-            item.setUploadedAt(LocalDateTime.now());
-
-            return ResponseEntity.ok(repo.save(item));
+            return ResponseEntity.ok(Map.of(
+                    "status", "success",
+                    "uploadedFiles", files.length));
 
         } catch (IOException e) {
+
             return ResponseEntity.internalServerError()
-                    .body(Map.of("error", "Upload failed", "message", e.getMessage()));
+                    .body(Map.of(
+                            "error", "Upload failed",
+                            "message", e.getMessage()));
         }
     }
 }
