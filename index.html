@@ -1,445 +1,452 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wedding invitation</title>
-    <link rel="manifest" href="manifest.json" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <!---Navbar-->
-    <header class="navbar">
-      <h1 class="logo">Wedding</h1>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#story">Story</a>
-        <a href="#events">Events</a>
-        <a href="#track">Journey</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#live">Live</a>
-        <a href="#contact">Contact</a>
-        <a href="admin.html" class="login-btn">Admin Login</a>
-        <button id="themeToggle">🌙</button>
-      </nav>
-    </header>
-    <!--Hero-->
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <span class="subtitle">THE WEDDING OF</span>
-        <hr />
-        <h2>Narayana rao & Jyotshna</h2>
-      </div>
-    </section>
-    <!--story-->
-    <section id="story" class="Story">
-      <div class="story-content">
-        <span class="story-of">Our Story</span>
-        <br />
-        <div class="divider"><span></span> 🖤 <span></span></div>
-        <p>
-          For seven beautiful years, Narayana Rao and Jyotshna built a love that
-          grew stronger with every sunrise and every challenge. What began as a
-          simple friendship slowly blossomed into a bond filled with trust,
-          laughter, and unwavering support. Life took them miles apart at times,
-          turning their journey into a long-distance love story. Through
-          late-night calls, countless messages, and endless patience, they
-          proved that true love knows no distance. Every kilometer between them
-          only strengthened their hearts.
-        </p>
-        <p>
-          They celebrated victories together, stood strong through difficult
-          moments, and held onto each other’s dreams as their own. Time tested
-          them, but love always won. On 11th April 2026, their seven-year
-          journey of faith and devotion finds its forever — as Narayana Rao and
-          Jyotshna unite in marriage, beginning a new chapter hand in hand,
-          heart to heart. 💍✨
-        </p>
-      </div>
-    </section>
-    <!--Event-->
-    <section id="events" class="event">
-      <div class="event-content">
-        <img src="./photos/DSC04908.JPG.jpeg" alt="" />
-        <div class="event-box">
-          <span>JOIN US TO CELEBRATE THE WEDDING DAY OF</span><br />
-          <h2>Narayana rao & Jyotshna</h2>
-          <span>WHICH IS CELEBRATEON</span>
-          <h3>11-APRIL-2026</h3>
-          <span>STARTING AT 12:15 IN THE NIGHT</span><br />
-          <p>MAGIC MAHAL IN OUR DREAM</p>
-        </div>
-      </div>
-    </section>
-    <!--map-->
-    <section class="map">
-      <iframe
-        src="https://www.google.com/maps?q=8WW6%2B4MV,+Srikakulam,+Gudem,+Andhra+Pradesh+532484,+India&z=19&output=embed"
-        width="100%"
-        height="450"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-      >
-      </iframe>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding invitation</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-      <button onclick="navigate()">📍 Navigate from My Location</button>
-    </section>
-    <!--Time-->
-    <section id="countdown" class="time">
-      <div class="time-box">
-        <h2>Don't miss it</h2>
-        <div class="countdown">
-          <div class="unit">
-            <span id="days">0</span>
-            <small>Days</small>
-          </div>
-          <div class="unit">
-            <span id="hours">0</span>
-            <small>Hours</small>
-          </div>
-          <div class="unit">
-            <span id="minutes">0</span>
-            <small>Minutes</small>
-          </div>
-          <div class="unit">
-            <span id="seconds">0</span>
-            <small>Seconds</small>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--Track-->
-    <section id="track" class="track">
-      <h2 class="track-title">Join our celebration of love</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="card">
-            <h4>09:00 AM</h4>
-            <p>Engagement</p>
-            <p>25-FEB-2026</p>
-            <!-- POPUP -->
-            <div class="card-popup">
-              <h5>Engagement Details</h5>
-              <p>Families meet, rings exchange, blessings & celebrations 💍</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="card">
-            <h4>02:00 PM</h4>
-            <p>Lunch</p>
-            <p>11-APRIL-2026</p>
-            <!-- POPUP -->
-            <div class="card-popup">
-              <h5>Lunch</h5>
-              <p>
-                dalrice, birayani, pulihora, gurthivankai, panner, frycurry,
-                curd, 3 veg currys, papadam, 3 types of sweets
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="card">
-            <h4>04:30 PM</h4>
-            <p>Sangeeth</p>
-            <p>11-APRIL-2026</p>
-            <!-- POPUP -->
-            <div class="card-popup">
-              <h5>Sangeeth</h5>
-              <p>
-                western dancce, classical dance, dj, rap, folk, catwalks,
-                fashion shows, and etc...
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="card">
-            <h4>08:00 PM</h4>
-            <p>Dinner</p>
-            <p>11-APRIL-2026</p>
-            <!-- POPUP -->
-            <div class="card-popup">
-              <h5>Dinner</h5>
-              <p>
-                dalrice, birayani, pulihora, gurthivankai, panner, frycurry,
-                curd, 3 veg currys, papadam, 3 types of sweets
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="card">
-            <h4>12:30 AM</h4>
-            <p>Wedding</p>
-            <p>11-APRIL-2026</p>
-            <!-- POPUP -->
-            <div class="card-popup">
-              <h5>Wedding</h5>
-              <p>
-                gillakarra bellam, talli, talmbralu, 7 steps, arudathi
-                nakshatram, panigrahanam.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--couple-->
-    <section class="couple-section">
-      <h2 class="couple-title">Groom & Bride</h2>
-      <div class="title-divider"><span></span> ❤ <span></span></div>
-      <div class="couple-wrapper">
-        <!-- Groom -->
-        <div class="person-card">
-          <img src="./photos/WhatsApp_1.jpeg" alt="Groom" />
-          <h3>NARAYANA RAO</h3>
-          <small>Groom</small>
-          <p>
-            Narayana Rao is a passionate DevOps software engineer, known for his
-            dedication and calm determination. Originally from Gudem, he built
-            his professional journey in Hyderabad, where he works with
-            commitment and vision. Grounded in values yet driven by ambition, he
-            balances tradition and modern life beautifully. Today, he steps into
-            a new chapter — not just as a professional, but as a loving life
-            partner. 💙
-          </p>
-        </div>
-        <!-- Center Image -->
-        <div class="couple-photo">
-          <img src="./photos/DSC04985.JPG.jpeg" alt="Couple" />
-        </div>
-        <!-- Bride -->
-        <div class="person-card">
-          <img src="./photos/WhatsApp_2.jpeg" alt="Bride" />
-          <h3>JYOTSHNA</h3>
-          <small>Bride</small>
-          <p>
-            Jyotshna has completed her postgraduate studies with dedication and
-            hard work. She currently lives in Srikakulam, where she is admired
-            for her simplicity and warm-hearted nature. Her calm personality and
-            strong values make her truly special. With dreams in her eyes and
-            kindness in her heart, she beautifully balances ambition and
-            tradition. As she begins this new chapter of life, she carries love,
-            hope, and happiness into her forever journey. 🌸💖
-          </p>
-        </div>
-      </div>
-    </section>
-    <!--love-story-->
-    <section class="love-story">
-      <h2 class="love-heading">Our Journey</h2>
-      <div class="title-divider"><span></span> 🖤 <span></span></div>
-      <div class="story-line">
-        <div class="story-row story-left">
-          <div class="story-card">
-            <img src="./photos/DSC04908.JPG.jpeg" alt="" />
-            <div class="story-text">
-              <h4>2021</h4>
-              <p>New Chapter</p>
-              <small>Started our beautiful journey together</small>
-            </div>
-          </div>
-          <span class="story-dot"></span>
-        </div>
-
-        <div class="story-row story-right">
-          <span class="story-dot"></span>
-          <div class="story-card">
-            <img src="./photos/DSC04945.JPG.jpeg" alt="" />
-            <div class="story-text">
-              <h4>2022</h4>
-              <p>Growing Love</p>
-              <small>Memories that made us stronger</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="story-row story-left">
-          <div class="story-card">
-            <img src="./photos/DSC04958.JPG.jpeg" alt="" />
-            <div class="story-text">
-              <h4>2023</h4>
-              <p>Forever Begins</p>
-              <small>Our wedding celebration</small>
-            </div>
-          </div>
-          <span class="story-dot"></span>
-        </div>
-        <div class="story-row story-right">
-          <span class="story-dot"></span>
-          <div class="story-card">
-            <img src="./photos/DSC05006.JPG.jpeg" alt="" />
-            <div class="story-text">
-              <h4>2024</h4>
-              <p>Growing Love</p>
-              <small>Memories that made us stronger</small>
-            </div>
-          </div>
-        </div>
-        <div class="story-row story-left">
-          <div class="story-card">
-            <img src="./photos/DSC05016.JPG.jpeg" alt="" />
-            <div class="story-text">
-              <h4>2025</h4>
-              <p>Forever Begins</p>
-              <small>Our wedding celebration</small>
-            </div>
-          </div>
-          <span class="story-dot"></span>
-        </div>
-      </div>
-    </section>
-    <!--rsvp-->
-    <section class="rsvp">
-      <h2>RSVP</h2>
-      <p>Please confirm your presence</p>
-
-      <form id="rsvpForm">
-        <input name="name" type="text" placeholder="Your Name" required />
-        <input name="email" type="email" placeholder="Email Address" required />
-        <input
-          name="number"
-          type="number"
-          placeholder="Number of Guests"
-          required
-        />
-        <textarea name="message" placeholder="Message (Optional)"></textarea>
-        <button type="submit">Confirm Attendance</button>
-      </form>
-      <button onclick="shareWhatsApp()" class="wa-btn">
-        📩 Share Wedding Invite
-      </button>
-    </section>
-    <!--album section-->
-    <section id="gallery" class="pw-album">
-      <h6 class="pw-subtitle">OUR SWEET MOMENTS</h6>
-      <h2 class="pw-title">Album Pre-Wedding</h2>
-      <div class="pw-slider-wrapper">
-        <button class="pw-nav pw-left" onclick="pwSlideLeft()">❮</button>
-
-        <div class="pw-slider-viewport">
-          <div class="pw-slider-track">
-            <!-- Repeat for 10 images -->
-            <div class="pw-card">
-              <img
-                src="./photos/DSC05006.JPG.jpeg"
-                onclick="openLightbox(this)"
-              />
-            </div>
-          </div>
-        </div>
-
-        <button class="pw-nav pw-right" onclick="pwSlideRight()">❯</button>
-      </div>
-      <br />
-      <div class="videos">
-        <!-- add your own video file named video.mp4 in the root or update the src below -->
-        <video id="galleryVideo" controls>
-  <source src="http://localhost:8080/uploads/1772717830000_diwali.mp4" type="video/mp4">
-</video>
-      </div>
-    </section>
-    <!--live stream section-->
-    <section id="live" class="live-stream">
-      <h2>Wedding Live Stream</h2>
-      <div class="video-container">
-        <!-- replace STREAM_ID with your actual YouTube live stream ID -->
-        <iframe
-          src="https://www.youtube.com/embed/vMsNQnNgVxc"
-          title="YouTube live stream"
-          frameborder="0"
-          allow="
-            accelerometer;
-            autoplay;
-            clipboard-write;
-            encrypted-media;
-            gyroscope;
-            picture-in-picture;
-          "
-          allowfullscreen
-        ></iframe>
-      </div>
-    </section>
-    <!--best wishes-->
-    <section class="wishes">
-      <div class="wish">
-        <h2 class="h2">Best Wishes</h2>
-        <div class="title-divider"><span></span> ❤ <span></span></div>
-        <div>
-          <h3>Roy</h3>
-          <p>
-            Dear Jyotshna and Narayana Rao,<br /><br />
-
-            As a brother, seeing you step into this beautiful new chapter fills
-            my heart with happiness and pride. These seven years of love and
-            patience have finally blossomed into a lifetime commitment. May your
-            journey together be filled with laughter, understanding, and endless
-            support for each other’s dreams.<br /><br />
-
-            May your home be blessed with peace, prosperity, and unconditional
-            love. Wishing you both a lifetime of togetherness and unforgettable
-            memories as you begin your forever on 11th April 2026. 💍✨<br /><br />
-
-            With all my love,<br />
-            Roy ❤️
-          </p>
-        </div>
-      </div>
-    </section>
-    <!--qr code-->
-    <section class="qr">
-      <h2>Scan for Wedding Invite 💌</h2>
-      <img
-        id="qrImage"
-        src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://roymama.wedding"
-        alt="Wedding QR Code"
-      />
-      <p>Scan & Join Our Wedding 💍</p>
-    </section>
-    <!--thankyou-->
-    <footer id="contact" class="wedding-footer">
-      <div class="footer-container">
-        <!-- LEFT CONTENT -->
-        <div class="footer-text">
-          <h2 class="footer-title">All are Invited</h2>
-
-          <p class="footer-message">
-            With immense joy and happiness, we warmly invite all our beloved
-            family, friends, and relatives to grace this auspicious occasion.
-            Your presence, blessings, and love will make our celebration truly
-            complete. Please join us on 11th April 2026 and be a part of this
-            beautiful beginning. 💍✨
-          </p>
-          <div class="footer-social">
-            <a href="https://www.facebook.com/hruday.kalluri/">f</a>
-            <a href="https://www.instagram.com/hruday_dev_roy/?__pwa=1#">i</a>
-            <a href="https://www.youtube.com/HrudayDevRoy/">▶</a>
-          </div>
-          <p class="footer-love">With Love</p>
-          <h3 class="footer-names">Narayana rao ❤️ Jyotshna</h3>
-          <p class="footer-copy">© 2025 Wedding Invitation</p>
-        </div>
-        <!-- RIGHT IMAGE -->
-        <div class="footer-image">
-          <img src="./photos/DSC04908.JPG.jpeg" alt="Couple" />
-        </div>
-      </div>
-    </footer>
-    <!--fixed gallery button-->
-    <button id="galleryBtn" class="fixed-btn" title="Go to gallery">📸</button>
-    <!--lightbox-->
-    <div id="lightbox" onclick="closeLightbox()">
-      <img id="lightbox-img" />
+<body>
+  <!---Navbar-->
+  <header class="navbar">
+    <h1 class="logo">Wedding</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#story">Story</a>
+      <a href="#events">Events</a>
+      <a href="#track">Journey</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#live">Live</a>
+      <a href="#contact">Contact</a>
+      <a href="admin.html" class="login-btn">Admin Login</a>
+      <button id="themeToggle">🌙</button>
+    </nav>
+  </header>
+  <!--Hero-->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <span class="subtitle">THE WEDDING OF</span>
+      <hr />
+      <h2>Narayana rao & Jyotshna</h2>
     </div>
-    <!-- JS FILE -->
-    <script src="script.js" defer></script>
-  </body>
+  </section>
+  <!--story-->
+  <section id="story" class="Story">
+    <div class="story-content">
+      <span class="story-of">Our Story</span>
+      <br />
+      <div class="divider"><span></span> 🖤 <span></span></div>
+      <p>
+        For seven beautiful years, Narayana Rao and Jyotshna built a love that
+        grew stronger with every sunrise and every challenge. What began as a
+        simple friendship slowly blossomed into a bond filled with trust,
+        laughter, and unwavering support. Life took them miles apart at times,
+        turning their journey into a long-distance love story. Through
+        late-night calls, countless messages, and endless patience, they
+        proved that true love knows no distance. Every kilometer between them
+        only strengthened their hearts.
+      </p>
+      <p>
+        They celebrated victories together, stood strong through difficult
+        moments, and held onto each other’s dreams as their own. Time tested
+        them, but love always won. On 11th April 2026, their seven-year
+        journey of faith and devotion finds its forever — as Narayana Rao and
+        Jyotshna unite in marriage, beginning a new chapter hand in hand,
+        heart to heart. 💍✨
+      </p>
+    </div>
+  </section>
+  <!--Event-->
+  <section id="events" class="event">
+    <div class="event-content">
+      <img src="./photos/img1.jpeg" alt="Wedding Couple" />
+
+      <div class="event-box">
+        <span>WITH GREAT PLEASURE WE INVITE YOU TO CELEBRATE</span><br />
+
+        <h2>Narayana Rao & Jyothsna</h2>
+
+        <span>ON THE AUSPICIOUS OCCASION</span>
+
+        <h3>April 11, 2026</h3>
+
+        <span>AT 12:15 AM (Early Hours of Sunday)</span><br />
+
+        <p>
+          Venue: Devika Function Hall, Gudem Village,<br />
+          Srikakulam Mandal & District
+        </p>
+
+        <p>Lunch: April 11, 2026 from 12:00 Noon onwards</p>
+      </div>
+    </div>
+  </section>
+  <!--map-->
+  <section class="map">
+    <iframe
+      src="https://www.google.com/maps?q=8WW6%2B4MV,+Srikakulam,+Gudem,+Andhra+Pradesh+532484,+India&z=19&output=embed"
+      width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy">
+    </iframe>
+
+    <button onclick="navigate()">📍 Navigate from My Location</button>
+  </section>
+  <!--Time-->
+  <section id="countdown" class="time">
+    <div class="time-box">
+      <h2>Don't miss it</h2>
+      <div class="countdown">
+        <div class="unit">
+          <span id="days">0</span>
+          <small>Days</small>
+        </div>
+        <div class="unit">
+          <span id="hours">0</span>
+          <small>Hours</small>
+        </div>
+        <div class="unit">
+          <span id="minutes">0</span>
+          <small>Minutes</small>
+        </div>
+        <div class="unit">
+          <span id="seconds">0</span>
+          <small>Seconds</small>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Track-->
+  <section id="track" class="track">
+    <h2 class="track-title">Join our celebration of love</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="card">
+          <h4>09:00 AM</h4>
+          <p>Engagement</p>
+          <p>25-FEB-2026</p>
+          <!-- POPUP -->
+          <div class="card-popup">
+            <h5>Engagement Details</h5>
+            <p>Families meet, rings exchange, blessings & celebrations 💍</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="card">
+          <h4>02:00 PM</h4>
+          <p>Lunch</p>
+          <p>11-APRIL-2026</p>
+          <!-- POPUP -->
+          <div class="card-popup">
+            <h5>Lunch</h5>
+            <p>
+              dalrice, birayani, pulihora, gurthivankai, panner, frycurry,
+              curd, 3 veg currys, papadam, 3 types of sweets
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="card">
+          <h4>04:30 PM</h4>
+          <p>Sangeeth</p>
+          <p>11-APRIL-2026</p>
+          <!-- POPUP -->
+          <div class="card-popup">
+            <h5>Sangeeth</h5>
+            <p>
+              western dancce, classical dance, dj, rap, folk, catwalks,
+              fashion shows, and etc...
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="card">
+          <h4>08:00 PM</h4>
+          <p>Dinner</p>
+          <p>11-APRIL-2026</p>
+          <!-- POPUP -->
+          <div class="card-popup">
+            <h5>Dinner</h5>
+            <p>
+              dalrice, birayani, pulihora, gurthivankai, panner, frycurry,
+              curd, 3 veg currys, papadam, 3 types of sweets
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="card">
+          <h4>12:15</h4>
+          <p>Wedding</p>
+          <p>11-APRIL-2026</p>
+          <!-- POPUP -->
+          <div class="card-popup">
+            <h5>Wedding</h5>
+            <p>
+              gillakarra bellam, talli, talmbralu, 7 steps, arudathi
+              nakshatram, panigrahanam.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--couple-->
+  <section class="couple-section">
+    <h2 class="couple-title">Groom & Bride</h2>
+    <div class="title-divider"><span></span> ❤ <span></span></div>
+    <div class="couple-wrapper">
+      <!-- Groom -->
+      <div class="person-card">
+        <img src="./photos/WhatsApp_1.jpeg" alt="Groom" />
+        <h3>NARAYANA RAO</h3>
+        <small>Groom</small>
+        <p>
+          Narayana Rao, beloved son of Sri Giduthuri Musalayya (Late) and Smt.
+          Kanthamma, hails from Gudem Village, Srikakulam District. Known for
+          his calm nature and strong values, he carries forward a beautiful
+          blend of tradition and aspiration. As he steps into this new phase
+          of life, he brings with him warmth, responsibility, and a deep sense
+          of commitment.
+        </p>
+      </div>
+      <!-- Center Image -->
+      <div class="couple-photo">
+        <img src="./photos/WhatsApp Image 2026-03-18 at 4.49.18 PM (1).jpeg" alt="Couple" />
+      </div>
+      <!-- Bride -->
+      <div class="person-card">
+        <img src="./photos/WhatsApp_2.jpeg" alt="Bride" />
+        <h3>JYOTSHNA</h3>
+        <small>Bride</small>
+        <p>
+          Jyothsna, beloved daughter of Sri Kalluri Narayana Rao and Smt.
+          Saradha of Bathuva Village, Srikakulam District, is admired for her
+          grace, simplicity, and kind-hearted nature. With a gentle spirit and
+          strong values, she brings joy and harmony wherever she goes. As she
+          begins this new journey, she carries love, hope, and happiness into
+          her future.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!--love-story-->
+  <section class="love-story">
+    <h2 class="love-heading">Our Journey</h2>
+    <div class="title-divider"><span></span> 🖤 <span></span></div>
+    <div class="story-line">
+      <div class="story-row story-left">
+        <div class="story-card">
+          <img src="./photos/WhatsApp Image 2026-03-21 at 11.45.11 AM.jpeg" alt="" />
+          <div class="story-text">
+            <h4>2020</h4>
+            <p>The Beginning</p>
+            <small>Where our journey of love started</small>
+          </div>
+        </div>
+        <span class="story-dot"></span>
+      </div>
+
+      <div class="story-row story-right">
+        <span class="story-dot"></span>
+        <div class="story-card">
+          <img src="./photos/WhatsApp Image 2026-03-21 at 11.45.09 AM.jpeg" alt="" />
+          <div class="story-text">
+            <h4>2021</h4>
+            <p>Growing Together</p>
+            <small>Understanding, trust, and memories</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-row story-left">
+        <div class="story-card">
+          <img src="./photos/WhatsApp Image 2026-03-21 at 11.45.11 AM (1).jpeg" alt="" />
+          <div class="story-text">
+            <h4>2022</h4>
+            <p>Stronger Bond</p>
+            <small>Standing together through everything</small>
+          </div>
+        </div>
+        <span class="story-dot"></span>
+      </div>
+      <div class="story-row story-right">
+        <span class="story-dot"></span>
+        <div class="story-card">
+          <img src="./photos/WhatsApp Image 2026-03-21 at 11.45.11 AM (2).jpeg" alt="" />
+          <div class="story-text">
+            <h4>2023</h4>
+            <p>Unbreakable Love</p>
+            <small>Moments that brought us closer</small>
+          </div>
+        </div>
+      </div>
+      <div class="story-row story-left">
+        <div class="story-card">
+          <img src="./photos/WhatsApp Image 2026-03-21 at 11.37.07 AM.jpeg" alt="" />
+          <div class="story-text">
+            <h4>2024</h4>
+            <p>Dreaming Ahead</p>
+            <small>Planning a future together</small>
+          </div>
+        </div>
+        <span class="story-dot"></span>
+      </div>
+      <div class="story-row story-right">
+        <span class="story-dot"></span>
+        <div class="story-card">
+          <img src="./photos/WhatsApp Image 2026-03-21 at 11.37.30 AM.jpeg" alt="" />
+          <div class="story-text">
+            <h4>2025</h4>
+            <p>Forever Promise</p>
+            <small>Preparing for a lifetime together</small>
+          </div>
+        </div>
+      </div>
+      <div class="story-row story-left">
+        <span class="story-dot"></span>
+        <div class="story-card">
+          <img src="./photos/img2.jpeg" alt="" />
+          <div class="story-text">
+            <h4>2026</h4>
+            <p>The Wedding</p>
+            <small>Our forever begins here 💍</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--rsvp-->
+  <section class="rsvp">
+    <h2>RSVP</h2>
+    <p>Please confirm your presence</p>
+
+    <form id="rsvpForm">
+      <input name="name" type="text" placeholder="Your Name" required />
+      <input name="email" type="email" placeholder="Email Address" required />
+      <input name="number" type="number" placeholder="Number of Guests" required />
+      <textarea name="message" placeholder="Message (Optional)"></textarea>
+      <button type="submit">Confirm Attendance</button>
+    </form>
+    <button onclick="shareWhatsApp()" class="wa-btn">
+      📩 Share Wedding Invite
+    </button>
+  </section>
+  <!--album section-->
+  <section id="gallery" class="pw-album">
+    <h6 class="pw-subtitle">OUR SWEET MOMENTS</h6>
+    <h2 class="pw-title">Album Pre-Wedding</h2>
+    <div class="pw-slider-wrapper">
+      <button class="pw-nav pw-left" onclick="pwSlideLeft()">❮</button>
+
+      <div class="pw-slider-viewport">
+        <div class="pw-slider-track">
+          <!-- Repeat for 10 images -->
+          <div class="pw-card">
+            <img src="./photos/DSC05006.JPG.jpeg" onclick="openLightbox(this)" />
+          </div>
+        </div>
+      </div>
+
+      <button class="pw-nav pw-right" onclick="pwSlideRight()">❯</button>
+    </div>
+    <br />
+    <div class="videos">
+      <!-- add your own video file named video.mp4 in the root or update the src below -->
+      <video id="galleryVideo" controls>
+        <source src="./videos/WhatsApp Video 2026-02-28 at 2.48.18 PM (1).mp4" type="video/mp4" />
+      </video>
+    </div>
+  </section>
+  <!--live stream section-->
+  <section id="live" class="live-stream">
+    <h2>Wedding Live Stream</h2>
+    <div class="video-container">
+      <!-- replace STREAM_ID with your actual YouTube live stream ID -->
+      <iframe src="https://youtu.be/mxfTmDb12y8?si=Xe9elS3YnkmkNKsI" title="YouTube live stream" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+  <!--best wishes-->
+  <section class="wishes">
+    <div class="wish">
+      <h2 class="h2">Best Wishes</h2>
+      <div class="title-divider"><span></span> ❤ <span></span></div>
+      <div>
+        <h3>Roy</h3>
+        <p>
+          Dear Jyotshna and Narayana Rao,<br /><br />
+
+          As a brother, seeing you step into this beautiful new chapter fills
+          my heart with happiness and pride. These seven years of love and
+          patience have finally blossomed into a lifetime commitment. May your
+          journey together be filled with laughter, understanding, and endless
+          support for each other’s dreams.<br /><br />
+
+          May your home be blessed with peace, prosperity, and unconditional
+          love. Wishing you both a lifetime of togetherness and unforgettable
+          memories as you begin your forever on 11th April 2026. 💍✨<br /><br />
+
+          With all my love,<br />
+          Roy ❤️
+        </p>
+      </div>
+    </div>
+  </section>
+  <!--qr code-->
+  <section class="qr">
+    <h2>Scan for Wedding Invite 💌</h2>
+    <img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://roymama.wedding"
+      alt="Wedding QR Code" />
+    <p>Scan & Join Our Wedding 💍</p>
+  </section>
+  <!--thankyou-->
+  <footer id="contact" class="wedding-footer">
+    <div class="footer-container">
+      <!-- LEFT CONTENT -->
+      <div class="footer-text">
+        <h2 class="footer-title">All are Invited</h2>
+
+        <p class="footer-message">
+          With immense joy and happiness, we warmly invite all our beloved
+          family, friends, and relatives to grace this auspicious occasion.
+          Your presence, blessings, and love will make our celebration truly
+          complete. Please join us on 11th April 2026 and be a part of this
+          beautiful beginning. 💍✨
+        </p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/hruday.kalluri/">f</a>
+          <a href="https://www.instagram.com/hruday_dev_roy/?__pwa=1#">i</a>
+          <a href="https://www.youtube.com/HrudayDevRoy/">▶</a>
+        </div>
+        <p class="footer-love">With Love</p>
+        <h3 class="footer-names">Narayana rao ❤️ Jyotshna</h3>
+        <p class="footer-copy">© 2025 Wedding Invitation</p>
+      </div>
+      <!-- RIGHT IMAGE -->
+      <div class="footer-image">
+        <img src="./photos/img3.jpeg" alt="Couple" />
+      </div>
+    </div>
+  </footer>
+  <!--fixed gallery button-->
+  <button id="galleryBtn" class="fixed-btn" title="Go to gallery">📸</button>
+  <!--lightbox-->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" />
+  </div>
+  <!-- JS FILE -->
+  <script src="script.js" defer></script>
+</body>
+
 </html>

@@ -321,35 +321,109 @@ body.dark button {
   color: #ff8a80;
 }
 
-/* === LIVE STREAMING === */
+/* === LIVE STREAM SECTION === */
 
-.youtube-stream,
+.live-stream {
+  padding: 120px 20px;
+  background: white;
+  text-align: center;
+  font-family: "Georgia", serif;
+}
+
+/* heading */
+.live-stream h2 {
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 50px;
+  color: #222;
+
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+
+/* video container */
 .video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  height: 0;
+  max-width: 900px;
+  margin: auto;
+  border-radius: 14px;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-  margin: 40px auto;
-  max-width: 900px; /* Increased max-width for better visibility */
-  width: 100%;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeZoom 1.2s ease forwards;
+  animation-delay: 0.3s;
 }
 
-.youtube-stream iframe,
+/* iframe */
 .video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  border: 0;
-  animation: fadeIn 1s ease;
+  height: 600px;
+  border: none;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+/* subtle hover */
+.video-container:hover {
+  transform: scale(1.02);
+  transition: 0.4s ease;
+}
+
+/* === ANIMATIONS === */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === TABLET === */
+@media (max-width: 900px) {
+
+  .live-stream h2 {
+    font-size: 34px;
+  }
+
+  .video-container iframe {
+    height: 400px;
+  }
+}
+
+/* === MOBILE === */
+@media (max-width: 600px) {
+
+  .live-stream {
+    padding: 80px 15px;
+  }
+
+  .live-stream h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .video-container {
+    border-radius: 10px;
+  }
+
+  .video-container iframe {
+    height: 220px;
+  }
 }
 
 /* === RSVP & QR SECTIONS === */
@@ -410,54 +484,161 @@ body.dark button {
 /* === EVENT SECTION === */
 
 .event {
-  padding: 100px 0;
-  background: #fff;
+  padding: 120px 20px;
+  background: #f9f7f4;
+  font-family: "Georgia", serif;
 }
 
+/* layout */
 .event-content {
-  max-width: 900px;
+  max-width: 1100px;
   margin: auto;
   display: flex;
-  gap: 100px;
+  gap: 80px;
   align-items: center;
+  justify-content: center;
 }
 
+/* image */
 .event-content img {
-  width: 500px;
-  height: 500px;
+  width: 680px;
+  height: 520px;
   object-fit: cover;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  border-radius: 10px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeZoom 1.2s ease forwards;
 }
 
+/* text */
 .event-box {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  max-width: 420px;
+
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 0.3s;
 }
 
+/* small headings */
 .event-box span {
-  font-size: 18px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #666;
 }
 
+/* names */
 .event-box h2 {
   font-size: 64px;
   font-family: "Brush Script MT", cursive;
   font-weight: 400;
+  color: #111;
+  line-height: 1.2;
 }
 
+/* date */
 .event-box h3 {
-  font-size: 45px;
+  font-size: 40px;
   font-family: "Brush Script MT", cursive;
-  font-weight: 200;
+  font-weight: 400;
+  color: #333;
 }
 
+/* description */
 .event-box p {
-  font-size: 16px;
-  letter-spacing: 1px;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
 }
 
+/* === ANIMATIONS === */
+
+@keyframes fadeZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* hover */
+.event-content img:hover {
+  transform: scale(1.03);
+  transition: 0.4s ease;
+}
+
+/* === TABLET === */
+@media (max-width: 900px) {
+  .event-content {
+    flex-direction: column;
+    gap: 50px;
+    text-align: center;
+  }
+
+  .event-content img {
+    width: 90%;
+    height: auto;
+  }
+
+  .event-box h2 {
+    font-size: 50px;
+  }
+
+  .event-box h3 {
+    font-size: 32px;
+  }
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .event {
+    padding: 80px 15px;
+  }
+
+  .event-content {
+    gap: 30px;
+  }
+
+  .event-box {
+    gap: 10px;
+  }
+
+  .event-box span {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .event-box h2 {
+    font-size: 38px;
+  }
+
+  .event-box h3 {
+    font-size: 26px;
+  }
+
+  .event-box p {
+    font-size: 14px;
+  }
+}
 /* === COUNTDOWN TIMER === */
 
 .time {
@@ -630,92 +811,201 @@ body.dark button {
 /* === COUPLE SECTION === */
 
 .couple-section {
-  padding: 90px 20px;
-  background: #fff;
+  padding: 110px 20px;
+  background: white;
   text-align: center;
+  font-family: "Georgia", serif;
 }
 
+/* title */
 .couple-title {
   font-family: "Brush Script MT", cursive;
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  color: #222;
 }
 
+/* divider */
 .title-divider {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
   margin-bottom: 70px;
+  color: #c59d5f;
 }
 
 .title-divider span {
   width: 60px;
   height: 1px;
-  background: #999;
+  background: #c59d5f;
 }
 
+/* layout */
 .couple-wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 60px;
   max-width: 1200px;
   margin: auto;
 }
 
+/* cards */
 .person-card {
-  width: 260px;
-  background: #f9f9f9;
+  width: 280px;
+  background: #fff;
   padding: 40px 25px;
-  border-radius: 8px;
-  margin-bottom: 0;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards;
 }
 
+/* stagger animation */
+.person-card:nth-child(1) { animation-delay: 0.2s; }
+.person-card:nth-child(3) { animation-delay: 0.4s; }
+
+/* images */
 .person-card img {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   border: 4px solid #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+/* names */
 .person-card h3 {
   font-family: "Brush Script MT", cursive;
-  font-size: 32px;
+  font-size: 30px;
   margin-bottom: 5px;
 }
 
+/* role */
 .person-card small {
   display: block;
-  font-size: 14px;
-  color: #777;
+  font-size: 13px;
+  color: #888;
   margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
+/* description */
 .person-card p {
   font-size: 14px;
-  color: #666;
-  line-height: 1.6;
+  color: #555;
+  line-height: 1.7;
 }
 
+/* center image */
 .couple-photo img {
-  width: 360px;
-  height: 580px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  border-radius: 10px;
+  width: 340px;
+  height: 560px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeZoom 1.2s ease forwards;
+  animation-delay: 0.3s;
 }
 
-.couple-photo {
-  margin: 10px 0;
+/* animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+@keyframes fadeZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* hover */
+.person-card:hover {
+  transform: translateY(-8px);
+  transition: 0.4s ease;
+}
+
+.couple-photo img:hover {
+  transform: scale(1.03);
+  transition: 0.4s ease;
+}
+
+/* === TABLET === */
+@media (max-width: 900px) {
+  .couple-wrapper {
+    flex-direction: column;
+    align-items: center; /* FIX: center everything */
+    gap: 40px;
+  }
+
+  .person-card {
+    width: 90%;   /* FIX: full width feel */
+    max-width: 350px;
+  }
+
+  .couple-photo img {
+    width: 90%;
+    height: auto;
+  }
+}
+
+/* === MOBILE (THIS IS WHERE YOUR ISSUE WAS) === */
+@media (max-width: 600px) {
+
+  .couple-section {
+    padding: 80px 15px;
+  }
+
+  .couple-title {
+    font-size: 36px;
+  }
+
+  .title-divider span {
+    width: 40px;
+  }
+
+  .person-card {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .person-card h3 {
+    font-size: 26px;
+  }
+
+  .person-card p {
+    font-size: 13px;
+  }
+
+  .couple-photo img {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
 /* ==== LOVE STORY === */
 
 .love-story {
-  background: linear-gradient(205deg, #F6EA41,#F048C6,blue);
+  background: linear-gradient(205deg, #ddd6f3,#faaca8);
   padding: 90px 20px;
   color: #fff;
   text-align: center;
@@ -760,14 +1050,24 @@ body.dark button {
 
 .story-card {
   width: 320px;
-  background: #000;
+  background: #935757;
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  overflow: hidden; /* 🔥 important */
 }
 
+/* FIXED IMAGE DISPLAY */
 .story-card img {
   width: 100%;
-  height: 200px;
+  height: auto;              /* 🔥 key fix */
+  max-height: 260px;
   object-fit: cover;
+  object-position: center;   /* keep faces centered */
+  display: block;
+}
+.story-card img:hover {
+  transform: scale(1.05);
+  transition: 0.4s ease;
 }
 
 .story-text {
@@ -807,11 +1107,11 @@ body.dark button {
 }
 
 .story-left .story-card {
-  margin-right: 70px;
+  margin-right: 60px;
 }
 
 .story-right .story-card {
-  margin-left: 70px;
+  margin-left: 60px;
 }
 
 /* === PRE-WEDDING ALBUM === */
@@ -1267,27 +1567,9 @@ video {
 }
 
 /* Live Streaming Responsive */
-@media (max-width: 768px) {
-  .youtube-stream,
-  .video-container {
-    max-width: 100%;
-    margin: 20px auto;
-  }
-}
 
 /* Event Responsive */
-@media (max-width: 768px) {
-  .event-content {
-    flex-direction: column;
-    gap: 40px;
-    text-align: center;
-  }
 
-  .event-content img {
-    width: 100%;
-    height: auto;
-  }
-}
 
 /* Countdown Responsive */
 @media (max-width: 1024px) {
@@ -1349,37 +1631,36 @@ video {
   }
 }
 
-/* Couple Responsive */
-@media (max-width: 900px) {
-  .couple-wrapper {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .couple-photo img {
-    width: 90%;
-  }
-}
-
-/* Love Story Responsive */
+/* Love Story Responsive *//* === MOBILE FIX === */
 @media (max-width: 768px) {
+
   .story-line::before {
-    left: 20px;
+    left: 15px;
   }
 
   .story-row {
     justify-content: flex-start;
+    margin-bottom: 50px;
   }
 
   .story-dot {
-    left: 20px;
-    transform: translateY(-50%);
-    box-shadow: 0 0 10px rgba(255,255,255,0.7);
+    left: 15px;
+    width: 10px;
+    height: 10px;
   }
 
   .story-card {
-    margin-left: 50px !important;
-    width: 90%;
+    width: 100%;
+    max-width: 320px;
+    margin-left: 35px !important; /* align properly */
+  }
+
+  .story-card img {
+    max-height: 220px;
+  }
+
+  .love-heading {
+    font-size: 28px;
   }
 }
 
