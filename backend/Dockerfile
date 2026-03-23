@@ -6,4 +6,4 @@ COPY . .
 
 RUN mvn clean package
 
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["java", "-jar", "target/wedding-0.0.1-SNAPSHOT.jar"]
