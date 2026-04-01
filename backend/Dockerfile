@@ -2,14 +2,8 @@ FROM maven:3.9.6-eclipse-temurin-17
 
 WORKDIR /app
 
-# Copy only backend folder
-COPY backend ./backend
+COPY . .
 
-# Move into backend
-WORKDIR /app/backend
+RUN mvn clean package -DskipTests
 
-# Build project
-RUN mvn clean package
-
-# Run jar
-CMD ["java", "-jar", "target/wedding-0.0.1-SNAPSHOT.jar"]
+CMD ["sh", "-c", "java -jar target/*.jar"]
